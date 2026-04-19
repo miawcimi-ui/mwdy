@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan Web</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 50px;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            background-color: lightpink;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Latihan Interaktif</h1>
+
+    <!-- INPUT -->
+    <input type="text" id="nama" placeholder="Masukkan Nama">
+    <input type="number" id="absen" placeholder="No Absen">
+
+    <div id="box"></div>
+
+    <p id="output">Klik tombol di bawah</p>
+
+    <button onclick="ubahTeks()">Ubah Teks</button>
+    <button onclick="ubahWarna()">Ubah Warna</button>
+    <button onclick="tampilWaktu()">Tampilkan Waktu</button>
+
+    <script>
+        function ubahTeks() {
+            let nama = document.getElementById("nama").value;
+            let absen = document.getElementById("absen").value;
+
+            document.getElementById("output").innerText = 
+                "Halo, " + nama + " (Absen: " + absen + ")";
+        }
+
+        function ubahWarna() {
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+
+            let warna = "rgb(" + r + "," + g + "," + b + ")";
+            document.getElementById("box").style.backgroundColor = warna;
+        }
+
+        function tampilWaktu() {
+            let waktu = new Date();
+            document.getElementById("output").innerText = 
+                "Waktu sekarang: " + waktu.toLocaleString();
+        }
+    </script>
+
+</body>
+</html>
